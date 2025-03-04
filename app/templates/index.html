@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Sperm Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Real-Time Sperm Analysis System</h1>
+        </header>
+        
+        <main>
+            <div class="control-panel">
+                <button id="startBtn" class="btn primary">Start Screen Capture</button>
+                <button id="stopBtn" class="btn secondary" disabled>Stop Capture</button>
+                <div class="status-panel">
+                    <p id="connectionStatus">Status: Disconnected</p>
+                    <p id="captureStatus">Capture: Inactive</p>
+                </div>
+            </div>
+
+            <div class="display-panel">
+                <div class="screen-preview">
+                    <h2>Screen Analysis</h2>
+                    <div class="preview-container">
+                        <img id="previewImg" src="" alt="Screen preview will appear here">
+                    </div>
+                </div>
+                
+                <div class="stats-panel">
+                    <h2>Sperm Analysis Stats</h2>
+                    <div class="stats-grid">
+                        <div class="stat-box live">
+                            <h3>Live Sperm</h3>
+                            <p id="liveCount">0</p>
+                            <p id="livePercentage">0%</p>
+                        </div>
+                        <div class="stat-box dead">
+                            <h3>Dead Sperm</h3>
+                            <p id="deadCount">0</p>
+                            <p id="deadPercentage">0%</p>
+                        </div>
+                        <div class="stat-box abnormal">
+                            <h3>Abnormal Sperm</h3>
+                            <p id="abnormalCount">0</p>
+                            <p id="abnormalPercentage">0%</p>
+                        </div>
+                        <div class="stat-box total">
+                            <h3>Total Count</h3>
+                            <p id="totalCount">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="instructions-panel">
+                <h2>Instructions</h2>
+                <ol>
+                    <li>Click "Start Screen Capture" to begin analyzing your screen.</li>
+                    <li>Select which screen or application window to capture when prompted.</li>
+                    <li>The system will automatically detect and classify sperm cells in real-time.</li>
+                    <li>Green circles indicate live sperm, red circles indicate dead sperm, and orange circles indicate abnormal sperm.</li>
+                    <li>Click "Stop Capture" to end the analysis session.</li>
+                </ol>
+                <p class="note">Note: This application requires an active internet connection and screen capture permissions to function properly.</p>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Sperm Analysis System</p>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
